@@ -30,6 +30,9 @@ categories = [
 [package.metadata.release]
 pre-release-commit-message = "Bump version to {{version}}"
 
+[features]
+default = ["image/default"]
+
 ### BEGIN
 # Fix an issue where `cargo bench -- --save-baseline` does not work.
 # For more details, please see https://bheisler.github.io/criterion.rs/book/faq.html#cargo-bench-gives-unrecognized-option-errors-for-valid-command-line-options
@@ -52,9 +55,10 @@ criterion = "0.3.4"
 assert_cmd = "2.0.0"
 assert_fs = "1.0.1"
 predicates = "2.0.1"
+image = { version = "0.25.2", default-features = true }
 
 [dependencies]
-image = "^0.24"
+image = { version = "0.25.2", default-features = false }
 getopts = "0.2.21"
 anyhow = "1.0.40"
 colored = "2.0.0"
